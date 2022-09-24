@@ -22,6 +22,7 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
+      - run: npm install --save-dev @babel/cli@7.18.10
       - checkout
       - run: npm i
       - run: npm run lint
@@ -29,6 +30,7 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
+      - run: npm install --save-dev @babel/cli@7.18.10
       - checkout
       - run: npm i
       - run: npm run test
@@ -36,6 +38,7 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
+      - run: npm install --save-dev @babel/cli@7.18.10
       - checkout
       - run: npm audit
 
