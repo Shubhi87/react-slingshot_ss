@@ -18,6 +18,25 @@ jobs:
           root: ss_workspace
           paths:
             - ssfile1.txt
+  build:
+    docker:
+      - image: circleci/node:13.8.0
+    working_directory: /tmp
+    steps:
+      - run: npm run lint
+  test:
+    docker:
+      - image: circleci/node:13.8.0
+    working_directory: /tmp
+    steps:
+      - run: npm run test
+  analyze:
+    docker:
+      - image: circleci/node:13.8.0
+    working_directory: /tmp
+    steps:
+      - run: npm audit
+
 
   get_hello_user:
     docker:
@@ -45,3 +64,10 @@ workflows:
       - get_hello_user:
           requires:
             - print_hello_user
+      - build
+      - test:
+          requires:
+            - build
+      - analyze:
+          requires:
+            - test
