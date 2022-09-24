@@ -24,6 +24,7 @@ jobs:
     steps:
       - checkout
       - run: npm install --save-dev @babel/cli@7.18.10
+      - run: npm audit fix 
       - run: npm i
       - run: npm run lint
   test:
