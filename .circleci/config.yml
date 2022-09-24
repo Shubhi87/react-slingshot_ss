@@ -22,24 +22,24 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - run: npm install --save-dev @babel/cli@7.18.10
       - checkout
+      - run: npm install --save-dev @babel/cli@7.18.10
       - run: npm i
       - run: npm run lint
   test:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - run: npm install --save-dev @babel/cli@7.18.10
       - checkout
+      - run: npm install --save-dev @babel/cli@7.18.10
       - run: npm i
       - run: npm run test
   analyze:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - run: npm install --save-dev @babel/cli@7.18.10
       - checkout
+      - run: npm install --save-dev @babel/cli@7.18.10
       - run: npm audit
 
 
